@@ -1,4 +1,4 @@
-function createRandomArray(valuesInput: number): number[] {
+export function createRandomArray(valuesInput: number): number[] {
   const newNumbersArray: number[] = [];
 
   for (let i = 1; i <= valuesInput; i++) {

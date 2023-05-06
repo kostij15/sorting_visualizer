@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SortButton from "./SortButton";
 
 enum Algorithm {
@@ -10,6 +10,7 @@ enum Algorithm {
 
 type NavbarProps = {
   runAlgorithmSelected: (algorithmString: string) => void;
+  handleArrayResize: (arraySizeInput: number) => void;
 };
 
 interface Settings {
@@ -24,8 +25,16 @@ const intialSettings: Settings = {
   delay: 15,
 };
 
-export default function Navbar({ runAlgorithmSelected }: NavbarProps) {
+export default function Navbar({
+  runAlgorithmSelected,
+  handleArrayResize,
+}: NavbarProps) {
   const [settings, setSettings] = useState<Settings>(intialSettings);
+
+  useEffect(() => {
+    handleArrayResize(settings.arrayLength);
+    console.log(`New length: ${settings.arrayLength}`);
+  }, [settings.arrayLength]);
 
   return (
     <nav className="w-screen bg-gray-400 py-10 bottom-0 z-[95] fixed">
