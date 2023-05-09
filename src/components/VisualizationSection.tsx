@@ -4,17 +4,21 @@ type Props = {
 
 export default function VisualizationSection({ numbersArray }: Props) {
   return (
-    <section className="w-full top-0">
-      <div className="flex w-full h-full items-center">
-        {numbersArray.map((num, index) => {
-          return (
-            <div
-              key={index}
-              className={`flex-1 bg-visualization-color-200 border border-visualization-color-400`}
-            ></div>
-          );
-        })}
-      </div>
-    </section>
+    <main className="flex w-full h-[70%] items-end">
+      {numbersArray.map((num, index) => {
+        return (
+          <div
+            key={index}
+            id={`bar-${index}`}
+            className="flex-1"
+            style={{
+              backgroundColor: "#482",
+              height: `${num / 7}%`,
+              overflow: "auto",
+            }}
+          ></div>
+        );
+      })}
+    </main>
   );
 }

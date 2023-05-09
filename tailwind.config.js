@@ -10,6 +10,12 @@ export default {
           400: "#4d6987",
           900: "#022954",
         },
+        "visualization-color": {
+          100: "#baf6d6",
+          200: "#8cf0bb",
+          400: "#5eeaa0",
+          900: "#8cf0bb",
+        },
         "sort-button-color": {
           100: "#a881af",
         },

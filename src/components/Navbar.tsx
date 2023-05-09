@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import SortButton from "./SortButton";
 
 enum Algorithm {
@@ -9,54 +9,69 @@ enum Algorithm {
 }
 
 type NavbarProps = {
+  algorithmSelected: string;
+  randomNumberArray: number[];
+  setRandomNumberArray: (arr: number[]) => void;
   runAlgorithmSelected: (algorithmString: string) => void;
   handleArrayResize: (arraySizeInput: number) => void;
 };
 
-interface Settings {
-  algorithmSelected: Algorithm;
-  arrayLength: number;
-  delay: number;
-}
-
 const intialSettings: Settings = {
-  algorithmSelected: Algorithm.mergeSort,
   arrayLength: 25,
   delay: 15,
 };
 
 export default function Navbar({
+  algorithmSelected,
   runAlgorithmSelected,
+  randomNumberArray,
+  setRandomNumberArray,
   handleArrayResize,
 }: NavbarProps) {
   const [settings, setSettings] = useState<Settings>(intialSettings);
 
   useEffect(() => {
     handleArrayResize(settings.arrayLength);
-    console.log(`New length: ${settings.arrayLength}`);
   }, [settings.arrayLength]);
 
   return (
-    <nav className="w-screen bg-gray-400 py-10 bottom-0 z-[95] fixed">
+    <nav className="flex flex-col max-h-[30%] w-screen py-2">
+      <div className="py-2">
+        <h1 className="flex w-full justify-center py-5 font-bold text-xl">
+          {algorithmSelected ? algorithmSelected : "Select Sorting Algorithm"}
+        </h1>
+      </div>
       <div className="flex items-center justify-center w-full gap-5">
         <SortButton
           runAlgorithmSelected={runAlgorithmSelected}
+          sortingArray={randomNumberArray}
+          setRandomNumberArray={setRandomNumberArray}
+          settings={settings}
           sortName="Merge"
         />
         <SortButton
           runAlgorithmSelected={runAlgorithmSelected}
+          sortingArray={randomNumberArray}
+          setRandomNumberArray={setRandomNumberArray}
+          settings={settings}
           sortName="Quick"
         />
         <SortButton
           runAlgorithmSelected={runAlgorithmSelected}
+          sortingArray={randomNumberArray}
+          setRandomNumberArray={setRandomNumberArray}
+          settings={settings}
           sortName="Selection"
         />
         <SortButton
           runAlgorithmSelected={runAlgorithmSelected}
+          sortingArray={randomNumberArray}
+          setRandomNumberArray={setRandomNumberArray}
+          settings={settings}
           sortName="Bogo"
         />
       </div>
-      <div className="flex flex-col items-center py-4">
+      <div className="flex flex-col items-center">
         <label htmlFor="array-size" className="py-2">
           Array Size: {settings.arrayLength}
         </label>
@@ -65,12 +80,11 @@ export default function Navbar({
           type="range"
           id="array-size"
           name="array-size"
-          min={1}
-          max={10000}
+          min={10}
+          max={500}
           defaultValue={settings.arrayLength}
-          onClick={(e) => {
+          onInput={(e) => {
             e.preventDefault();
-
             const newSizeSetting: Settings = {
               ...settings,
               arrayLength: Number(e.currentTarget.value),
@@ -85,9 +99,9 @@ export default function Navbar({
           id="array-size"
           name="array-size"
           min={1}
-          max={10000}
+          max={500}
           defaultValue={settings.delay}
-          onClick={(e) => {
+          onInput={(e) => {
             e.preventDefault();
 
             const newDelaySetting: Settings = {
