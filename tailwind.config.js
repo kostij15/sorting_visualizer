@@ -10,11 +10,22 @@ export default {
           400: "#4d6987",
           900: "#022954",
         },
+        "primary-color-dark": {
+          100: "#efeae4",
+          200: "#d8cabb",
+          400: "#c1ab93",
+        },
         "visualization-color": {
-          100: "#baf6d6",
-          200: "#8cf0bb",
-          400: "#5eeaa0",
-          900: "#8cf0bb",
+          100: "#a9adff",
+          200: "#565200",
+          400: "#565200",
+          900: "#565200",
+        },
+
+        "visualization-color-dark": {
+          100: "#dcdeff",
+          200: "#cbcdff",
+          400: "#a9adff",
         },
         "sort-button-color": {
           100: "#a881af",

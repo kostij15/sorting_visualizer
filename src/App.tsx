@@ -28,9 +28,18 @@ function App() {
       }
       const newArray = createRandomArray(arraySizeInput);
       setRandomNumberArray(newArray);
+      revertBackgroundColor(randomNumberArray);
     },
     [randomNumberArray]
   );
+
+  const revertBackgroundColor = (randomNumberArray: number[]) => {
+    randomNumberArray.forEach((_, index) => {
+      const div = document.getElementById(`bar-${index}`);
+      if (!div) return;
+      div.style.backgroundColor = "#565200";
+    });
+  };
 
   return (
     <>
