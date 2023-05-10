@@ -1,4 +1,5 @@
 import { animateMergeSort, mergeSort } from "../sorting_algorithms/mergeSort";
+import { animateQuickSort, quickSort } from "../sorting_algorithms/quickSort";
 
 type SortButtonProps = {
   sortName: string;
@@ -31,7 +32,20 @@ export default function SortButton({
           settings.delay,
           setRandomNumberArray
         );
+        break;
+      case "quick":
+        quickSort(copiedNumberArray, animateArr, startIndex, endIndex);
+        animateQuickSort(
+          copiedNumberArray,
+          animateArr,
+          settings.delay,
+          setRandomNumberArray
+        );
+        break;
     }
+    document.title = `${
+      algorithmName[0].toUpperCase() + algorithmName.slice(1)
+    } - Array Size ${copiedNumberArray.length}`;
   }
   return (
     <>

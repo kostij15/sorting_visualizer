@@ -10,11 +10,9 @@ export default function VisualizationSection({ numbersArray }: Props) {
           <div
             key={index}
             id={`bar-${index}`}
-            className="flex-1"
+            className="flex-1 bg-visualization-color-400 border-2 border-black"
             style={{
-              backgroundColor: "#482",
-              height: `${num / 7}%`,
-              overflow: "auto",
+              height: `${num / 6}%`,
             }}
           ></div>
         );

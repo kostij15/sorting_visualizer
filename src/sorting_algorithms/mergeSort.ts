@@ -8,7 +8,6 @@ export function mergeSort(
   if (lowNum >= highNum) return;
 
   const midpoint = Math.floor((lowNum + highNum) / 2);
-  console.log(lowNum, highNum);
 
   mergeSort(items, auxillaryArr, animationArr, lowNum, midpoint);
   mergeSort(items, auxillaryArr, animationArr, midpoint + 1, highNum);
@@ -26,11 +25,10 @@ export function animateMergeSort(
     if (!div) return;
     setTimeout(() => {
       div.style.backgroundColor = "#b041f0";
-      div.style.height = `${newHeight / 7}%`;
+      div.style.height = `${newHeight / 6}%`;
       setTimeout(() => {
         div.style.backgroundColor = "#482";
         if (idx === animationArr.length - 1) {
-          console.log(newArr);
           setArray(newArr);
         }
       }, delay * 2);
@@ -46,17 +44,17 @@ function merge(
   midpoint: number,
   highNum: number
 ) {
-  console.log(items);
   for (let j = lowNum; j <= highNum; j++) {
     auxillaryArr[j] = items[j];
   }
-  console.log(`Auxillary: ${auxillaryArr}`);
 
   let lowIndex = lowNum;
   let upperIndex = midpoint + 1;
 
-  for (let i = lowNum; i <= highNum; i++) {
+  let i = lowNum;
+  while (i <= highNum) {
     if (lowIndex > midpoint) {
+      //if the "lower" index we are looking at is greater than the midpoint
       animationArr.push([auxillaryArr[upperIndex], i]);
       items[i] = auxillaryArr[upperIndex++];
     } else if (upperIndex > highNum) {
@@ -69,5 +67,6 @@ function merge(
       animationArr.push([auxillaryArr[upperIndex], i]);
       items[i] = auxillaryArr[upperIndex++];
     }
+    i++;
   }
 }
