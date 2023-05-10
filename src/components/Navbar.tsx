@@ -68,7 +68,7 @@ export default function Navbar({
           sortingArray={randomNumberArray}
           setRandomNumberArray={setRandomNumberArray}
           settings={settings}
-          sortName="Bogo"
+          sortName="Bubble"
         />
       </div>
       <div className="flex flex-col items-center">
