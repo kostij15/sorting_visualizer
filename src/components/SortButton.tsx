@@ -1,3 +1,7 @@
+import {
+  animateBubbleSort,
+  bubbleSort,
+} from "../sorting_algorithms/bubbleSort";
 import { animateMergeSort, mergeSort } from "../sorting_algorithms/mergeSort";
 import { animateQuickSort, quickSort } from "../sorting_algorithms/quickSort";
 
@@ -42,6 +46,14 @@ export default function SortButton({
           setRandomNumberArray
         );
         break;
+      case "bubble":
+        bubbleSort(copiedNumberArray, animateArr);
+        animateBubbleSort(
+          copiedNumberArray,
+          animateArr,
+          settings.delay,
+          setRandomNumberArray
+        );
     }
     document.title = `${
       algorithmName[0].toUpperCase() + algorithmName.slice(1)
