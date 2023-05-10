@@ -22,19 +22,19 @@ function partition(
   let end = high;
 
   while (start <= end) {
-    while (arr[end] >= pivot) {
+    while (arr[end] > pivot) {
       end--;
     }
 
-    while (arr[start] <= pivot) {
+    while (arr[start] < pivot) {
       start++;
     }
 
     if (start <= end) {
       animateArr.push([arr[start], start, arr[end], end]);
       swap(arr, start, end);
-    } else {
-      break;
+      start++;
+      end--;
     }
   }
   animateArr.push([arr[low], low, arr[end], end]);
