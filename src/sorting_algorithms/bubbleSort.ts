@@ -1,5 +1,7 @@
 //Bubble Sort
 
+import { swapElements } from "../utils/swapElements";
+
 //Algorithm
 //while ever element is not sorted
 // for i < arr.length - 1
@@ -50,8 +52,4 @@ export function animateBubbleSort(
       }, delay * 2);
     }, delay * idx * 2);
   });
-}
-
-function swapElements(arr: number[], index1: number, index2: number) {
-  [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
 }
