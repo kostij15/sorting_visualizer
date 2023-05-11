@@ -1,9 +1,8 @@
-import {
-  animateBubbleSort,
-  bubbleSort,
-} from "../sorting_algorithms/bubbleSort";
 import { animateMergeSort, mergeSort } from "../sorting_algorithms/mergeSort";
-import { animateQuickSort, quickSort } from "../sorting_algorithms/quickSort";
+import { animateIndexSwap } from "../utils/animateIndexSwap";
+import { bubbleSort } from "../sorting_algorithms/bubbleSort";
+import { quickSort } from "../sorting_algorithms/quickSort";
+import { selectionSort } from "../sorting_algorithms/selectionSort";
 
 type SortButtonProps = {
   sortName: string;
@@ -39,7 +38,7 @@ export default function SortButton({
         break;
       case "quick":
         quickSort(copiedNumberArray, animateArr, startIndex, endIndex);
-        animateQuickSort(
+        animateIndexSwap(
           copiedNumberArray,
           animateArr,
           settings.delay,
@@ -48,7 +47,16 @@ export default function SortButton({
         break;
       case "bubble":
         bubbleSort(copiedNumberArray, animateArr);
-        animateBubbleSort(
+        animateIndexSwap(
+          copiedNumberArray,
+          animateArr,
+          settings.delay,
+          setRandomNumberArray
+        );
+        break;
+      case "selection":
+        selectionSort(copiedNumberArray, animateArr);
+        animateIndexSwap(
           copiedNumberArray,
           animateArr,
           settings.delay,

@@ -1,3 +1,5 @@
+import { swapElements } from "../utils/swapElements";
+
 export function quickSort(
   arr: number[],
   animateArr: number[][],
@@ -32,13 +34,13 @@ function partition(
 
     if (start <= end) {
       animateArr.push([arr[start], start, arr[end], end]);
-      swap(arr, start, end);
+      swapElements(arr, start, end);
       start++;
       end--;
     }
   }
   animateArr.push([arr[low], low, arr[end], end]);
-  swap(arr, low, end);
+  swapElements(arr, low, end);
   return end;
 }
 
@@ -67,8 +69,4 @@ export function animateQuickSort(
       }, delay * 2);
     }, delay * idx * 2);
   });
-}
-
-function swap(arr: number[], idx1: number, idx2: number) {
-  [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
 }
