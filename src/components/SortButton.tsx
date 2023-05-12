@@ -62,6 +62,9 @@ export default function SortButton({
           settings.delay,
           setRandomNumberArray
         );
+        break;
+      default:
+        break;
     }
     document.title = `${
       algorithmName[0].toUpperCase() + algorithmName.slice(1)

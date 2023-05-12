@@ -2,7 +2,6 @@ import { useState, useCallback } from "react";
 import Navbar from "./components/Navbar";
 import { createRandomArray } from "./utils/createRandomArray";
 import VisualizationSection from "./components/VisualizationSection";
-import { animateMergeSort, mergeSort } from "./sorting_algorithms/mergeSort";
 
 function App() {
   const [algorithmSelected, setAlgorithmSelected] = useState("");
