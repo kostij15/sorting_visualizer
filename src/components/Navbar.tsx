@@ -35,12 +35,7 @@ export default function Navbar({
   }, [settings.arrayLength]);
 
   return (
-    <nav className="flex flex-col h-[30%] w-screen py-2">
-      <div className="py-2">
-        <h1 className="flex w-full justify-center py-5 font-bold text-xl">
-          {algorithmSelected ? algorithmSelected : "Select Sorting Algorithm"}
-        </h1>
-      </div>
+    <nav className="flex flex-col h-[25%] w-screen py-2">
       <div className="flex items-center justify-center w-full gap-5">
         <SortButton
           runAlgorithmSelected={runAlgorithmSelected}

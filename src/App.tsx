@@ -2,10 +2,13 @@ import { useState, useCallback } from "react";
 import Navbar from "./components/Navbar";
 import { createRandomArray } from "./utils/createRandomArray";
 import VisualizationSection from "./components/VisualizationSection";
+import Modal from "./components/Modal";
+import Header from "./components/Header";
 
 function App() {
   const [algorithmSelected, setAlgorithmSelected] = useState("");
   const [randomNumberArray, setRandomNumberArray] = useState<number[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
 
   const runAlgorithmSelected = useCallback(
     (algorithmName: string) => {
@@ -42,6 +45,18 @@ function App() {
 
   return (
     <>
+      <div className="h-[7%]">
+        <Header
+          algorithmSelected={algorithmSelected}
+          isOpen={isModalOpen}
+          setIsOpen={setIsModalOpen}
+        />
+        <Modal
+          isOpen={isModalOpen}
+          setIsOpen={setIsModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
+      </div>
       <Navbar
         algorithmSelected={algorithmSelected}
         runAlgorithmSelected={runAlgorithmSelected}
