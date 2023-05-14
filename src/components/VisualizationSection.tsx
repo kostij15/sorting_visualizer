@@ -4,7 +4,7 @@ type Props = {
 
 export default function VisualizationSection({ numbersArray }: Props) {
   return (
-    <main className="flex w-full h-[70%] items-end">
+    <main className="flex w-full h-[68%] items-end">
       {numbersArray.map((num, index) => {
         return (
           <div
