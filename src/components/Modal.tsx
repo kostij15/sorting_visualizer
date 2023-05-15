@@ -1,10 +1,9 @@
 type ModalProps = {
   isOpen: boolean;
-  setIsOpen: (open: boolean) => void;
   onClose: () => void;
 };
 
-function Modal({ isOpen, setIsOpen, onClose }: ModalProps) {
+function Modal({ isOpen, onClose }: ModalProps) {
   if (!isOpen) return null;
   return (
     <aside className="absolute flex justify-center text-center px-20  py-2 after:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 right-0 bottom-0 w-[50%] max-w-3/4 h-[50%] border-solid border-black bg-gray-300  overflow-y-scroll  z-10000">

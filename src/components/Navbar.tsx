@@ -80,6 +80,7 @@ export default function Navbar({
           defaultValue={settings.arrayLength}
           onInput={(e) => {
             e.preventDefault();
+            //overwrites the arrayLength settings property on input change of array length slider
             const newSizeSetting: Settings = {
               ...settings,
               arrayLength: Number(e.currentTarget.value),
@@ -98,7 +99,7 @@ export default function Navbar({
           defaultValue={settings.delay}
           onInput={(e) => {
             e.preventDefault();
-
+            //overwrites the delay property within the settings variable on input change of delay slider
             const newDelaySetting: Settings = {
               ...settings,
               delay: Number(e.currentTarget.value),

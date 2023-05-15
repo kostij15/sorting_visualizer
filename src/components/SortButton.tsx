@@ -4,6 +4,7 @@ import { bubbleSort } from "../sorting_algorithms/bubbleSort";
 import { quickSort } from "../sorting_algorithms/quickSort";
 import { selectionSort } from "../sorting_algorithms/selectionSort";
 
+//We need to pass the name, the array, the algorithm for the selected string, resetting the numbered array and settings
 type SortButtonProps = {
   sortName: string;
   sortingArray: number[];
@@ -12,6 +13,10 @@ type SortButtonProps = {
   settings: Settings;
 };
 
+//Sort Button should handle
+//1. Sorting the array
+//2. The animation for sorting the array
+//3. Change the title of the document to the Algo + Array Size
 export default function SortButton({
   runAlgorithmSelected,
   setRandomNumberArray,

@@ -5,6 +5,7 @@ type ModalButtonProps = {
   setIsOpen: (open: boolean) => void;
 };
 
+//Button will be a way to access the help section after we close the initial modal popup
 function ModalButton({ isOpen, setIsOpen }: ModalButtonProps) {
   return (
     <div>
