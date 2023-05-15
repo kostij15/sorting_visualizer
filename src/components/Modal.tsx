@@ -7,7 +7,7 @@ type ModalProps = {
 function Modal({ isOpen, setIsOpen, onClose }: ModalProps) {
   if (!isOpen) return null;
   return (
-    <aside className="absolute flex justify-center text-center px-20  py-2 after:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 right-0 bottom-0 w-[50%] max-w-3/4 h-[50%] border-solid border-black bg-gray-300  overflow-y-scroll z-10000">
+    <aside className="absolute flex justify-center text-center px-20  py-2 after:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 right-0 bottom-0 w-[50%] max-w-3/4 h-[50%] border-solid border-black bg-gray-300  overflow-y-scroll  z-10000">
       <button
         className="absolute top-5 right-8 w-11 h-11 cursor-pointer opacity-30 text-6xl"
         onClick={onClose}
